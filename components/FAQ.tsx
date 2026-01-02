@@ -25,13 +25,17 @@ const FAQItem: React.FC<{
   question: string;
   answer: string;
   isOpen: boolean;
-  onClick: () => void;
-}> = ({ question, answer, isOpen, onClick }) => {
+  onHover: () => void;
+  onLeave: () => void;
+}> = ({ question, answer, isOpen, onHover, onLeave }) => {
   return (
-    <div className="border-b border-white/5 last:border-0">
-      <button
-        onClick={onClick}
-        className="w-full flex items-center justify-between py-6 text-left group focus:outline-none"
+    <div 
+      className="border-b border-white/5 last:border-0"
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+    >
+      <div
+        className="w-full flex items-center justify-between py-6 text-left group cursor-pointer"
       >
         <span className={`text-lg font-medium transition-colors duration-300 ${isOpen ? 'text-bright-accent' : 'text-gray-200 group-hover:text-purple-300'}`}>
           {question}
@@ -39,7 +43,7 @@ const FAQItem: React.FC<{
         <div className={`p-1.5 rounded-full border transition-all duration-300 ${isOpen ? 'border-bright-accent bg-bright-accent text-white shadow-[0_0_15px_rgba(112,0,255,0.4)]' : 'border-white/10 text-gray-400 group-hover:border-white/30 bg-white/5'}`}>
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </div>
-      </button>
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -60,7 +64,7 @@ const FAQItem: React.FC<{
 };
 
 const FAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="faq" className="relative py-20 px-6">
@@ -94,7 +98,8 @@ const FAQ: React.FC = () => {
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={openIndex === index}
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onHover={() => setOpenIndex(index)}
+                onLeave={() => setOpenIndex(null)}
               />
             ))}
           </div>

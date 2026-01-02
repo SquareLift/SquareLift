@@ -40,11 +40,11 @@ const Navbar: React.FC = () => {
             <div className="w-10 h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
               <span className="text-white font-bold text-xl">S</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-white font-display font-bold text-xl leading-tight tracking-tight group-hover:text-purple-300 transition-colors">
+            <div className="flex flex-col justify-center h-10">
+              <span className="text-white font-display font-bold text-xl leading-none tracking-tight group-hover:text-purple-300 transition-colors">
                 SquareLift
               </span>
-              <span className="text-white text-[10px] font-medium tracking-[0.2em] uppercase leading-none group-hover:text-purple-300 transition-colors pt-1">
+              <span className="text-white/70 text-[10px] font-medium tracking-[0.2em] uppercase leading-none group-hover:text-purple-300 transition-colors mt-1">
                 Technologies
               </span>
             </div>
