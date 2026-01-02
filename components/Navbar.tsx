@@ -36,13 +36,18 @@ const Navbar: React.FC = () => {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-              <span className="text-white font-bold text-lg">S</span>
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
+              <span className="text-white font-bold text-xl">S</span>
             </div>
-            <span className="text-white font-display font-bold text-xl tracking-tight group-hover:text-purple-300 transition-colors">
-              SquareLift Technologies
-            </span>
+            <div className="flex flex-col">
+              <span className="text-white font-display font-bold text-xl leading-tight tracking-tight group-hover:text-purple-300 transition-colors">
+                SquareLift
+              </span>
+              <span className="text-white text-[10px] font-medium tracking-[0.2em] uppercase leading-none group-hover:text-purple-300 transition-colors pt-1">
+                Technologies
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav */}
