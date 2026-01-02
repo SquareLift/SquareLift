@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { firstName, lastName, email, message } = formData;
-    
+
     // Construct mailto link to open user's default email client
     const subject = `Inquiry from ${firstName} ${lastName}`;
     const body = `Name: ${firstName} ${lastName}
@@ -29,7 +29,7 @@ Email: ${email}
 Message:
 ${message}`;
 
-    window.location.href = `mailto:hello@squarelift.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:squarelift.in@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const inputFocusStyle = {
@@ -42,7 +42,7 @@ ${message}`;
     <section id="contact" className="relative py-20 px-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
+
           {/* Info Section */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -67,10 +67,10 @@ ${message}`;
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">Email Us</h4>
-                  <p className="text-gray-400 text-sm">hello@squarelift.in</p>
+                  <p className="text-gray-400 text-sm">squarelift.in@gmail.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-colors">
                 <div className="p-2 rounded-lg bg-purple-500/20 text-purple-300">
                   <Phone className="w-5 h-5" />
@@ -87,7 +87,7 @@ ${message}`;
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">HQ</h4>
-                  <p className="text-gray-400 text-sm">Bangalore Indiranagar 560008</p>
+                  <p className="text-gray-400 text-sm">Indiranagar, Bangalore, 560008</p>
                 </div>
               </div>
             </div>
@@ -105,10 +105,10 @@ ${message}`;
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="firstName" className="text-sm font-medium text-gray-300">First Name</label>
-                  <motion.input 
+                  <motion.input
                     whileFocus={inputFocusStyle}
                     transition={{ duration: 0.3 }}
-                    type="text" 
+                    type="text"
                     id="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
@@ -119,10 +119,10 @@ ${message}`;
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="lastName" className="text-sm font-medium text-gray-300">Last Name</label>
-                  <motion.input 
+                  <motion.input
                     whileFocus={inputFocusStyle}
                     transition={{ duration: 0.3 }}
-                    type="text" 
+                    type="text"
                     id="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
@@ -135,10 +135,10 @@ ${message}`;
 
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium text-gray-300">Email Address</label>
-                <motion.input 
+                <motion.input
                   whileFocus={inputFocusStyle}
                   transition={{ duration: 0.3 }}
-                  type="email" 
+                  type="email"
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -150,7 +150,7 @@ ${message}`;
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
-                <motion.textarea 
+                <motion.textarea
                   whileFocus={inputFocusStyle}
                   transition={{ duration: 0.3 }}
                   id="message"
@@ -163,7 +163,7 @@ ${message}`;
                 />
               </div>
 
-              <button 
+              <button
                 type="submit"
                 className="w-full py-4 rounded-lg bg-gradient-to-r from-bright-accent to-purple-600 text-white font-bold tracking-wide hover:shadow-[0_0_20px_rgba(112,0,255,0.4)] transition-all transform active:scale-95 flex items-center justify-center gap-2"
               >
