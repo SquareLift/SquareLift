@@ -24,12 +24,12 @@ const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-4' : 'py-6'
+        scrolled ? 'py-3 md:py-4' : 'py-4 md:py-6'
       }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <nav
-          className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 ${
+          className={`flex items-center justify-between px-4 md:px-6 py-3 rounded-2xl transition-all duration-300 ${
             scrolled
               ? 'bg-void-black/50 backdrop-blur-xl border border-white/10 shadow-lg shadow-purple-900/10'
               : 'bg-transparent border border-transparent'
@@ -37,14 +37,14 @@ const Navbar: React.FC = () => {
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
-              <span className="text-white font-bold text-xl">S</span>
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
+              <span className="text-white font-bold text-lg md:text-xl">S</span>
             </div>
-            <div className="flex flex-col justify-center h-10">
-              <span className="text-white font-display font-bold text-xl leading-none tracking-tight group-hover:text-purple-300 transition-colors">
+            <div className="flex flex-col justify-center h-8 md:h-10">
+              <span className="text-white font-display font-bold text-lg md:text-xl leading-none tracking-tight group-hover:text-purple-300 transition-colors">
                 SquareLift
               </span>
-              <span className="text-white/70 text-[10px] font-medium tracking-[0.2em] uppercase leading-none group-hover:text-purple-300 transition-colors mt-1">
+              <span className="text-white/70 text-[9px] md:text-[10px] font-medium tracking-[0.2em] uppercase leading-none group-hover:text-white transition-colors mt-0.5 md:mt-1">
                 Technologies
               </span>
             </div>
@@ -73,9 +73,9 @@ const Navbar: React.FC = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-1"
+            className="md:hidden text-white p-2 -mr-2 hover:bg-white/10 rounded-full transition-colors"
           >
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
       </div>
@@ -87,19 +87,26 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 p-4 md:hidden"
+            className="absolute top-full left-0 right-0 p-4 md:hidden z-50"
           >
-            <div className="bg-void-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 shadow-2xl">
+            <div className="bg-void-black/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 shadow-2xl">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-200 hover:text-bright-accent py-2 border-b border-white/5 last:border-0"
+                  className="text-lg font-medium text-gray-200 hover:text-bright-accent py-3 border-b border-white/5 last:border-0"
                 >
                   {link.name}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 w-full py-3 rounded-xl bg-bright-accent text-center text-white font-medium hover:bg-purple-600 transition-colors"
+              >
+                Get Started
+              </a>
             </div>
           </motion.div>
         )}

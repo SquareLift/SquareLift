@@ -39,9 +39,9 @@ ${message}`;
   };
 
   return (
-    <section id="contact" className="relative py-20 px-6">
+    <section id="contact" className="relative py-12 md:py-20 px-4 md:px-6">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
 
           {/* Info Section */}
           <motion.div
@@ -49,47 +49,59 @@ ${message}`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 md:mb-6">
               Let's Build the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright-accent to-pink-500">
                 Impossible
               </span>
             </h2>
-            <p className="text-gray-400 text-lg mb-10 max-w-md">
+            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-10 max-w-md mx-auto lg:mx-0">
               Ready to elevate your business with stellar technology? Reach out to our team of experts today.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-colors">
-                <div className="p-2 rounded-lg bg-blue-500/20 text-blue-300">
+            <div className="space-y-4 md:space-y-6 text-left">
+              <a 
+                href="mailto:squarelift.in@gmail.com"
+                className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all cursor-pointer group"
+              >
+                <div className="p-2 rounded-lg bg-blue-500/20 text-blue-300 group-hover:scale-110 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">Email Us</h4>
-                  <p className="text-gray-400 text-sm">squarelift.in@gmail.com</p>
+                  <p className="text-gray-400 text-sm group-hover:text-blue-300 transition-colors">squarelift.in@gmail.com</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-colors">
-                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-300">
+              <a 
+                href="tel:+919090909090"
+                className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all cursor-pointer group"
+              >
+                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-300 group-hover:scale-110 transition-transform">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">Call Us</h4>
-                  <p className="text-gray-400 text-sm">+91 9090909090</p>
+                  <p className="text-gray-400 text-sm group-hover:text-purple-300 transition-colors">+91 9090909090</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-colors">
-                <div className="p-2 rounded-lg bg-pink-500/20 text-pink-300">
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Indiranagar%2C+Bangalore%2C+560008"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all cursor-pointer group"
+              >
+                <div className="p-2 rounded-lg bg-pink-500/20 text-pink-300 group-hover:scale-110 transition-transform">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">HQ</h4>
-                  <p className="text-gray-400 text-sm">Indiranagar, Bangalore, 560008</p>
+                  <p className="text-gray-400 text-sm group-hover:text-pink-300 transition-colors">Indiranagar, Bangalore, 560008</p>
                 </div>
-              </div>
+              </a>
             </div>
           </motion.div>
 
@@ -99,10 +111,10 @@ ${message}`;
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-void-black/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl"
+            className="bg-void-black/50 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-3xl"
           >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
                   <label htmlFor="firstName" className="text-sm font-medium text-gray-300">First Name</label>
                   <motion.input
@@ -113,7 +125,7 @@ ${message}`;
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none placeholder-gray-600"
-                    placeholder="John"
+                    placeholder="Arjun"
                     required
                   />
                 </div>
@@ -127,7 +139,7 @@ ${message}`;
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none placeholder-gray-600"
-                    placeholder="Doe"
+                    placeholder="Reddy"
                     required
                   />
                 </div>
@@ -143,7 +155,7 @@ ${message}`;
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none placeholder-gray-600"
-                  placeholder="john@company.com"
+                  placeholder="arjun.reddy@gmail.com"
                   required
                 />
               </div>
@@ -165,7 +177,7 @@ ${message}`;
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-lg bg-gradient-to-r from-bright-accent to-purple-600 text-white font-bold tracking-wide hover:shadow-[0_0_20px_rgba(112,0,255,0.4)] transition-all transform active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-3 md:py-4 rounded-lg bg-gradient-to-r from-bright-accent to-purple-600 text-white font-bold tracking-wide hover:shadow-[0_0_20px_rgba(112,0,255,0.4)] transition-all transform active:scale-95 flex items-center justify-center gap-2"
               >
                 Send Message <Send className="w-4 h-4" />
               </button>
