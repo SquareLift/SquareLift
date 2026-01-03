@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar: React.FC = () => {
+type PageType = 'home' | 'privacy' | 'terms';
+
+interface NavbarProps {
+  onNavigate: (page: PageType, sectionId?: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,11 +21,21 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', sectionId: 'hero' },
+    { name: 'Services', sectionId: 'services' },
+    { name: 'FAQ', sectionId: 'faq' },
+    { name: 'Contact', sectionId: 'contact' },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    onNavigate('home', sectionId);
+    setMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('home', 'hero');
+  };
 
   return (
     <header
@@ -36,7 +52,7 @@ const Navbar: React.FC = () => {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="#" onClick={handleLogoClick} className="flex items-center gap-3 group">
             <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
               <span className="text-white font-bold text-lg md:text-xl">S</span>
             </div>
@@ -53,21 +69,21 @@ const Navbar: React.FC = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-white text-sm font-medium transition-colors relative group"
+                onClick={() => handleNavClick(link.sectionId)}
+                className="text-gray-300 hover:text-white text-sm font-medium transition-colors relative group focus:outline-none"
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-bright-accent transition-all duration-300 group-hover:w-full" />
-              </a>
+              </button>
             ))}
-            <a
-              href="#contact"
+            <button
+              onClick={() => handleNavClick('contact')}
               className="px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 text-white text-sm font-medium transition-all hover:scale-105 active:scale-95"
             >
               Get Started
-            </a>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -91,22 +107,20 @@ const Navbar: React.FC = () => {
           >
             <div className="bg-void-black/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 shadow-2xl">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-200 hover:text-bright-accent py-3 border-b border-white/5 last:border-0"
+                  onClick={() => handleNavClick(link.sectionId)}
+                  className="text-left text-lg font-medium text-gray-200 hover:text-bright-accent py-3 border-b border-white/5 last:border-0"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                onClick={() => handleNavClick('contact')}
                 className="mt-2 w-full py-3 rounded-xl bg-bright-accent text-center text-white font-medium hover:bg-purple-600 transition-colors"
               >
                 Get Started
-              </a>
+              </button>
             </div>
           </motion.div>
         )}

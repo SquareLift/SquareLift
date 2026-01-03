@@ -1,14 +1,30 @@
 import React from 'react';
 import { Twitter, Linkedin, Github, Instagram } from 'lucide-react';
 
-const Footer: React.FC = () => {
+type PageType = 'home' | 'privacy' | 'terms';
+
+interface FooterProps {
+  onNavigate: (page: PageType, sectionId?: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleLinkClick = (e: React.MouseEvent, page: PageType) => {
+    e.preventDefault();
+    onNavigate(page);
+  };
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('home', 'hero');
+  };
+
   return (
     <footer className="border-t border-white/10 bg-black/40 backdrop-blur-md pt-12 md:pt-16 pb-8 px-4 md:px-6">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 md:mb-12">
           <div className="mb-8 md:mb-0 text-center md:text-left">
              {/* Brand Logo matching Navbar */}
-             <a href="#" className="flex items-center gap-3 mb-4 group justify-center md:justify-start">
+             <a href="#" onClick={handleHomeClick} className="flex items-center gap-3 mb-4 group justify-center md:justify-start">
                <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-tr from-bright-accent to-blue-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-purple-500/20">
                  <span className="text-white font-bold text-lg md:text-xl">S</span>
                </div>
@@ -42,8 +58,8 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 border-t border-white/5 pt-8 gap-4 md:gap-0">
           <p className="text-center md:text-left">&copy; 2026 SquareLift Technologies. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-400 transition-colors">Terms of Service</a>
+            <button onClick={(e) => handleLinkClick(e, 'privacy')} className="hover:text-gray-400 transition-colors focus:outline-none">Privacy Policy</button>
+            <button onClick={(e) => handleLinkClick(e, 'terms')} className="hover:text-gray-400 transition-colors focus:outline-none">Terms of Service</button>
           </div>
         </div>
       </div>

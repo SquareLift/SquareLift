@@ -16,8 +16,20 @@ const faqs = [
     answer: "Off-the-shelf CRMs often come with unnecessary features or lack specific workflows you need. Our Custom CRM solutions are tailored exactly to your business processes, improving efficiency and user adoption."
   },
   {
-    question: "What is included in your R&D services?",
-    answer: "Our Research & Development wing helps you innovate without the risk. We handle feasibility studies, prototyping, and technology exploration to help you integrate emerging tech into your business model safely."
+    question: "How long does a typical project take?",
+    answer: "Project timelines vary significantly based on scope and complexity. A standard corporate website might take 4-6 weeks, while a complex custom platform or mobile app could range from 3 to 6 months. We provide detailed Gantt charts and timelines during our initial planning phase."
+  },
+  {
+    question: "Do you provide post-launch support and maintenance?",
+    answer: "Absolutely. Technology evolves rapidly, and we ensure your digital assets evolve with it. We offer flexible maintenance packages that include security updates, performance monitoring, bug fixes, and feature enhancements to keep your systems running smoothly."
+  },
+  {
+    question: "What technologies does your team specialize in?",
+    answer: "We are agnostic but opinionated. We specialize in modern, scalable stacks including React, Next.js, and Tailwind CSS for front-end; Node.js, Python, and Go for back-end; and cloud infrastructure on AWS and Google Cloud. For mobile, we excel in React Native and Flutter for cross-platform efficiency."
+  },
+  {
+    question: "How do you ensure data security in your applications?",
+    answer: "Security is baked into our development process, not an afterthought. We implement industry-standard encryption, secure authentication protocols (OAuth/JWT), regular security audits, and follow GDPR/CCPA compliance guidelines to ensure your and your users' data remains protected."
   }
 ];
 
