@@ -76,7 +76,7 @@ ${message}`;
               </a>
 
               <a 
-                href="tel:+919090909090"
+                href="tel:+919752727343"
                 className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 hover:bg-white/10 transition-all cursor-pointer group"
               >
                 <div className="p-2 rounded-lg bg-purple-500/20 text-purple-300 group-hover:scale-110 transition-transform">
@@ -84,7 +84,7 @@ ${message}`;
                 </div>
                 <div>
                   <h4 className="text-white font-medium mb-1">Call Us</h4>
-                  <p className="text-gray-400 text-sm group-hover:text-purple-300 transition-colors">+91 9090909090</p>
+                  <p className="text-gray-400 text-sm group-hover:text-purple-300 transition-colors">+91 9752727343</p>
                 </div>
               </a>
 
